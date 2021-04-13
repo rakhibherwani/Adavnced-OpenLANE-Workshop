@@ -255,10 +255,10 @@ Viewing Placement in Magic
 To view placement in Magic the command mirrors viewing floorplanning:
 Layout of the design after Placement stage in Magic tool
  
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/25.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/26.png)
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/25.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/26.png)
  
 Standard Cell Design Flow
 Cell design is done in 3 parts:
@@ -289,10 +289,7 @@ Timing Driven is set to FALSE
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/28.png)
  
- 
- 
- 
-The interesting thing to notice is that the PG routing is not done yet. Usually (in ASIC flow), we perform this during Floorplan stage itself. But in the OpenLANE flow, PG routing happens after the CTS and before Routing.
+ The interesting thing to notice is that the PG routing is not done yet. Usually (in ASIC flow), we perform this during Floorplan stage itself. But in the OpenLANE flow, PG routing happens after the CTS and before Routing.
  
  
 Day-3 [Design library cell using Magic Layout and ngspice characterization]
@@ -410,14 +407,17 @@ To check the DRC engine, we manually create the DRC error. If we could observe t
  
 DRC Errors
 DRC errors in magic will be highlighted with white dotted lines:
+
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/37.png) 
  
  
  
 To know the complete info about the DRC error, after selecting the drc error, shift to tkcon window of MAGIC tool and see the info as shown below.
 Error info in the tkcon window
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/38.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/38.png)
  
  
  
@@ -426,45 +426,56 @@ Basically, by library characterization, we mean to identify 4 parameters. Rise t
  
 PEX Extraction with Magic
 To extract the parasitic spice file for the associated layout one needs to create an extraction file:
- 
+
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/39.png)
  
  
  
  
- 
 As we can see sky130_inv.ext file
+
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/40.png)
  
  
 After generating the extracted file we need to output the .ext file to a spice file: 
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/41.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/41.png)
  
  
 We can see sky130_inv.spice file
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/42.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/42.png)
  
 Extracted Spice netlist
  
  
 Spice Wrapper for simulation
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/43.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/43.png)
  
  
 After extracting it, we invoke the NGSPice tool to perform the transient analysis and will find  Rise transition delay, fall transition delay, rise cell delay and fall cell delay 
 Invoking NGSpice tool
 To run the simulation with ngspice, invoke the ngspice tool with the spice file as input:
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/44.png)
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/44.png)
+
  
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/45.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/46.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/47.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/48.png)
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/45.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/46.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/47.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/48.png)
  
  
  
