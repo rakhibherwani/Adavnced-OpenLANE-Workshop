@@ -131,32 +131,43 @@ In floorplan, we fix the core utilization ratio, aspect ratio and provide decap 
 The output the the floorplanning phase is a DEF file which describes core area and placement of standard cell SITES:
  
 To Open default  floorplan config file
-  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/9.png) 
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/9.png) 
  
  
  
 Contents of Default floorplan config file
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/10.png)  
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/10.png)  
  
  
  
 To Open sky 130 Config File
+
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/11.png) 
  
  
  
  
 Contents of Sky130a Config file
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/12.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/12.png)
  
  
  
  
  
 Sky130a config file
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/13.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/14.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/13.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/14.png)
  
  
  
@@ -167,17 +178,23 @@ Floorplanning with OpenLANE
 To run floorplan in OpenLANE:
  
  run_floorplan
+ 
+ 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/15.png)
  
 Floor plan
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/16.png)
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/16.png)
  
  
  
 Therefore, we can see output of Floorplan is def file:
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/17.png)
- 
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/18.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/17.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/18.png)
  
  
  
@@ -189,29 +206,32 @@ To view our floorplan in Magic we need to provide three files as input:
 Magic technology file (sky130A.tech)
 Def file of floorplan
 Merged LEF file
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/19.png)
  
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/19.png)
- 
- 
- 
-Layout after floorplan stage in Magic tool
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/20.png)
+ Layout after floorplan stage in Magic tool
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/20.png)
  
  
  
 Pins and decap cells
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/21.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/21.png)
  
  
  
 Welltap cells arranged in checker board fashion
+
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/22.png) 
  
  
+ Location of Std cells in the floorplan
  
- 
- 
-Location of Std cells in the floorplan
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/23.png)
  
@@ -227,13 +247,14 @@ To do placement in OpenLANE:
 %run_placement
  
 For placement to converge the overflow value needs to be converging to 0. At the end of placement cell legalization will be reported:
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/24.png)
- 
- 
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/24.png)
  
 Viewing Placement in Magic
 To view placement in Magic the command mirrors viewing floorplanning:
 Layout of the design after Placement stage in Magic tool
+ 
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/25.png)
  
@@ -255,6 +276,7 @@ Characterization is a well-defined flow consisting of the following steps:
 6.	Apply input or stimulus
 7.	Provide necessary simulation commands
  
+
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/27.png) 
  
  
@@ -263,6 +285,8 @@ We generally know that there are two types of placements
 •	Placement Driven
 We can set the same in OpenLANE as well. Below is the config file in which the environment variable named PL_TIME_DRIVEN is set as 0 which indicates FALSE. Hence, the placement performed above is Congestion Driven Placement by default.
 Timing Driven is set to FALSE
+ 
+ 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/28.png)
  
  
@@ -317,7 +341,9 @@ Contacts & local interconnect Creation : SiO2 removed using HF etch. Titanium de
 Higher Level metal layer formation : Upper layers of metals deposited.
  
 Cloning the GitHub repo for the inverter
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/29.png)
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/29.png)
  
  
  
@@ -325,7 +351,9 @@ Cloning the GitHub repo for the inverter
  
 After invoking Magic
 Layout of Inverter
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/30.png)
+ 
+ 
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/30.png)
  
  
  
@@ -341,15 +369,22 @@ Select the specific layer/device by hovering over the object and pressing, s, it
 NMOS Transistor: press 's' , write 'what' on magic terminal:
  
 Run the what command in the tkcon window:
+ 
+ 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/31.png)
+ 
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/32.png)
  
+ 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/33.png)
+ 
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/34.png)
  
+ 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/35.png)
+ 
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-3/36.png)
  
