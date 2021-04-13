@@ -7,7 +7,7 @@ The inputs to the ASIC design flow are:
  
 Process Design Kit (PDK) is the interface between the CAD designers and the foundry. The PDK is a collection of files used to model a fabrication process for the EDA tools used in designing an IC. PDK’s are traditionally closed-source and hence are the limiting factor to open-source Digital ASIC Design. Google and Skywater have broken this stigma and published the world’s first open-source PDK on June 30th, 2020. This breakthrough has been a catalyst for open-source EDA tools. This workshop focuses on using the open-source RTL2GDS EDA tool, OpenLANE, in conjunction with the Skywater 130nm PDK to perform the full RTL2GDS flow as shown below:
  
-<font size="100"> **Day 1 Inception of Open Source EDA tools** </font> 
+##### **Day 1 Inception of Open Source EDA tools** 
 
 
 Skywater PDK Files
@@ -50,7 +50,8 @@ Different software dependencies are needed to run OpenLANE. To import these into
 Prepare Design
  
 Prep is used to make file structure for our design. To set this up do:
-  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/5.png) 
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/5.png) 
  
  
  
