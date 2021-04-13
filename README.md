@@ -2,19 +2,22 @@
 
 OpenLANE is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, Fault, OpenPhySyn, CVC, SPEF-Extractor, CU-GR, Klayout and custom methodology scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII - this capability will be released in the coming weeks with completed SoC design examples that have been sent to SkyWater for fabrication.
  
- 
+### Inputs of ASIC Design Flow are:
 The inputs to the ASIC design flow are:
 - Process Design Rules: DRC, LVS, PEX
 - Device Models (SPICE)
 - Digital Standard Cell Libraries
 - I/O Libraries
- 
+
+
+##### Process Design Kit
 Process Design Kit (PDK) is the interface between the CAD designers and the foundry. The PDK is a collection of files used to model a fabrication process for the EDA tools used in designing an IC. PDK’s are traditionally closed-source and hence are the limiting factor to open-source Digital ASIC Design. Google and Skywater have broken this stigma and published the world’s first open-source PDK on June 30th, 2020. This breakthrough has been a catalyst for open-source EDA tools. This workshop focuses on using the open-source RTL2GDS EDA tool, OpenLANE, in conjunction with the Skywater 130nm PDK to perform the full RTL2GDS flow as shown below:
  
 ## Day-1 Inception of Open Source EDA tools
 
 
-Skywater PDK Files
+##### Skywater PDK Files
+
 The Skywater PDK files we are working with are described under $PDK_ROOT. There are three subdirectories needed for the workshop:
  
 1.	Skywater-pdk – Contains all the foundry provided PDK related files
@@ -24,11 +27,12 @@ The Skywater PDK files we are working with are described under $PDK_ROOT. There 
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/1.png)
  
  
-Design Folder
+##### Design Folder
 All designs run within OpenLANE are extracted from the openlane/designs folder:
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/2.png) 
  
- Invoking OpenLane
+
+##### Invoking OpenLane
 
 
 
@@ -41,7 +45,7 @@ All designs run within OpenLANE are extracted from the openlane/designs folder:
 •	To run interactively, use the -interactive option with the ./flow.tcl script
  
  
-Package Importing
+##### Package Importing
 Different software dependencies are needed to run OpenLANE. To import these into the OpenLANE tool we need to run:
 
 
@@ -51,7 +55,7 @@ Different software dependencies are needed to run OpenLANE. To import these into
  
  
  
-Prepare Design
+##### Prepare Design
  
 Prep is used to make file structure for our design. To set this up do:
 
@@ -60,7 +64,7 @@ Prep is used to make file structure for our design. To set this up do:
  
  
  
-Synthesis
+### Synthesis
  
 Synthesis with OpenLANE
 To run Synthesis in OpenLANE:
@@ -74,13 +78,13 @@ Printing Statics obtained after synthesis contains summary of cells in the desig
  
  
  
-Chip Area
+##### Chip Area
 
 
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/7.png) 
  
  
-Slack Report of min and max paths of the clock
+##### Slack Report of min and max paths of the clock
 
 
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/8.png)  
@@ -88,7 +92,7 @@ Slack Report of min and max paths of the clock
  
  
  
-Skywater supports:
+##### Skywater supports:
  
 hd: High Density Library
 hdll: High Density Low Leakage Library
