@@ -61,16 +61,22 @@ To run Synthesis in OpenLANE:
  
  
 Printing Statics obtained after synthesis contains summary of cells in the design after optimization in the synthesis. Chip area can also be noted.
-  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/6.png) 
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/6.png) 
  
  
  
 Chip Area
-  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/7.png) 
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/7.png) 
  
  
 Slack Report of min and max paths of the clock
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/8.png)  
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/8.png)  
  
  
  
