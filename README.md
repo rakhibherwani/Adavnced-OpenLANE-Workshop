@@ -41,8 +41,11 @@ All designs run within OpenLANE are extracted from the openlane/designs folder:
  
  
 •	./flow.tcl is the script which runs the OpenLANE flow
+
 •	OpenLANE can be run interactively or in autonomous mode
+
 •	To run interactively, use the -interactive option with the ./flow.tcl script
+
  
  
 ##### Package Importing
@@ -67,8 +70,10 @@ Prep is used to make file structure for our design. To set this up do:
 ### Synthesis
  
 Synthesis with OpenLANE
-To run Synthesis in OpenLANE:
- run_synthesis
+
+Command To run Synthesis in OpenLANE:
+
+run_synthesis
  
  
 Printing Statics obtained after synthesis contains summary of cells in the design after optimization in the synthesis. Chip area can also be noted.
@@ -95,11 +100,18 @@ Printing Statics obtained after synthesis contains summary of cells in the desig
 ##### Skywater supports:
  
 hd: High Density Library
+
 hdll: High Density Low Leakage Library
+
 hvl: High Voltage Library
+
 hs: High Speed Library
+
 ms: Medium Speed Library
+
 lp: Low Power Library
+
+
 Those Libraries are offered at only three corners: Slow, Fast and Typical
  
  
@@ -108,27 +120,38 @@ Those Libraries are offered at only three corners: Slow, Fast and Typical
 In Floorplanning we typically set the:
  
 Die Area
+
 Core Area
+
 Core Utilization
+
 Aspect Ratio
+
 Place Macros
+
 Power distribution network (Normally done here but done later in OpenLANE)
+
 Place input and output pins
  
  
 Aspect Ratio and Utilization Factor
+
 Two key descriptions of a floorplan are utilization and aspect ratio. The amount of area of the die core the standard cells are taking up is called utilization. Normally we go for 50-70% utilization to, or utilization factor of 0.5-0.7. Keeping within this range allows for optimization of placement and realizable routing of a system. Aspect ratio can specify the shape of your chip by the height of the core area divided by the width of the core area. An aspect ratio of 1 discribes the chip as a square.
  
 Preplaced Cells
+
 Preplaced cells, or MACRO’s, are important to enable hierarchical PnR flow. Preplaced cells enable VLSI engineers to granularize a larger design. In floorplanning we define locations and blockages for preplaced cells. Blockages are needed to ensure no standard cells are mapped where the placeplaced cells are located.
  
 Decoupling Capacitors
+
 Decoupling capacitors are placed local to preplaced cells during Floorplanning. Voltage drops associated with interconnect wires can heavily affect our noise margin or put it into an indeterminate state. Decoupling capacitor is a big capacitor located next to the macros to fix this problem. The capacitor will charge up to the power supply voltage over time and it will work as a charge reservoir when a transition is needed by the circuit instead of the charge coming from the power supply. Therefore it “decouples” the circuit from the main supply. The capacitor acts like the power supply.
  
 Power Planning
+
 Power planning during the Floorplanning phase is essential to lower noise in digital circuits attributed to voltage droop and ground bounce. Coupling capacitance is formed between interconnect wires and the substrate which needs to be charged or discharged to represent either logic 1 or logic 0. When a transition occurs on a net, charge associated with coupling capacitors may be dumped to ground. If there are not enough ground taps charge will accumulate at the tap and the ground line will act like a large resistor, raising the ground voltage and lowering our noise margin. To bypass this problem a robust PDN with many power strap taps are needed to lower the resistance associated with the PDN.
  
 Pin Placement
+
 Pin placement is an essential part of floorplanning to minimize buffering and improve power consumption and timing delays. The goal of pin placement is to use the connectivity information of the HDL netlist to determine where along the I/O ring a specific pin should be placed. In many cases, optimal pin placement will be accompanied with less buffering and therefore less power consumption. After pin placement is formed we need to place logical cell blockages along the I/O ring to discriminate between the core area and I/O area.
  
  
@@ -192,7 +215,7 @@ To run floorplan in OpenLANE:
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/15.png)
  
-Floor plan
+Floorplan
 
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/16.png)
  
@@ -214,7 +237,9 @@ Viewing Floorplan in Magic:
 To view our floorplan in Magic we need to provide three files as input:
  
 Magic technology file (sky130A.tech)
+
 Def file of floorplan
+
 Merged LEF file
 
 
@@ -240,21 +265,21 @@ Welltap cells arranged in checker board fashion
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/22.png) 
  
  
- Location of Std cells in the floorplan
+ Location of Standard cells in the floorplan
  
  
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/23.png)
  
  
-Run_placement
  
 Placement
 The next step in the Digital ASIC design flow after floorplanning is placement. The synthesized netlist has been mapped to standard cells and floorplanning phase has determined the standard cells rows, enabling placement. OpenLANE does placement in two stages:
 1.	Global Placement - Optimized but not legal placement. Optimization works to reduce wirelength by reducing half parameter wirelength
 2.	Detailed Placement - Legalizes placement of cells into standard cell rows while adhering to global placement
+
 To do placement in OpenLANE:
  
-%run_placement
+ run_placement
  
 For placement to converge the overflow value needs to be converging to 0. At the end of placement cell legalization will be reported:
 
@@ -278,13 +303,13 @@ Cell design is done in 3 parts:
 Standard Cell Characterization
 Standard Cell Libraries consist of cells with different functionality/drive strengths. These cells need to be characterized by liberty files to be used by synthesis tools to determine optimal circuit arrangement. The open-source software GUNA is used for characterization.
 Characterization is a well-defined flow consisting of the following steps:
-1.	Link Model File of CMOS containing property definitions
-2.	Specify process corner(s) for the cell to be characterized
-3.	Specify cell delay and slew thresholds percentages
-4.	Specify timing and power tables
-5.	Read the parasitic extracted netlist
-6.	Apply input or stimulus
-7.	Provide necessary simulation commands
+     1.	Link Model File of CMOS containing property definitions
+     2.	Specify process corner(s) for the cell to be characterized
+     3.	Specify cell delay and slew thresholds percentages
+     4.	Specify timing and power tables
+     5.	Read the parasitic extracted netlist
+     6.	Apply input or stimulus
+     7.	Provide necessary simulation commands
  
 
 ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-2/27.png) 
@@ -310,10 +335,15 @@ To simulate standard cells spice deck wrappers will need to be created around ou
 SPICE deck will comprise of:
  
 Model include statements
+
 Component connectivity, including substrate taps
+
 Output load capacitance
+
 Component values
+
 Node names
+
 Simulation commands
  
 To plot the output waveform of the spice deck we will use ngspice. The steps to run the simulation on ngpice are as follows:
@@ -341,8 +371,10 @@ To enable efficient description of the varying waveforms a single parameter call
 Substrate Selection : Selection of base layer on which other regions will be formed.
 Create an active region for transistors : SiO2 and Si3N2 deposited. Pockets created using photoresist and lithography.
 Nwell & Pwell formation : Pwell uses boron and nwell uses phosphorus. Drive in diffusion by placing it in a high temperature furnace.
+
 Creating Gate terminal : For desired threshold value NA (doping Concentration) and Cox to be set.
 Lightly Doped Drain (LDD) formation : LDD done to avoid hot electron effect and short channel effect.
+
 Source and Drain formation : Forming the source and drain.
 Contacts & local interconnect Creation : SiO2 removed using HF etch. Titanium deposited using sputtering.
 Higher Level metal layer formation : Upper layers of metals deposited.
@@ -357,6 +389,7 @@ Cloning the GitHub repo for the inverter
  
  
 After invoking Magic
+
 Layout of Inverter
  
  
@@ -367,6 +400,7 @@ Layout of Inverter
 Magic Key Features:
  
 •	Color Palette - Defines layers and associated colors Continuous DRC
+
 •	Device Inference - Automatic recognition of NMOS and PMOS devices
  
 Device Inference
@@ -432,9 +466,12 @@ Error info in the tkcon window
  
  
 Library Characterization
+
+
 Basically, by library characterization, we mean to identify 4 parameters. Rise transition delay, fall transition delay, rise cell delay and fall cell delay We consider a basic inverter layout to identify the parameters. After importing the mag file and the skylane130A tech file, we extract the spice netlist
  
 PEX Extraction with Magic
+
 To extract the parasitic spice file for the associated layout one needs to create an extraction file:
 
 
@@ -527,17 +564,15 @@ Prop
 ## Day 4 Layout Timing Analysis and CTS
  
 Place and routing (PnR) is performed using an abstract view of the GDS files generated by Magic. The abstract information will include metal and pin information. The PnR tool will use the abstract view information, formally defined as LEF information, to perform interconnect routing in conjunction to routing guides generated from the PnR flow.
+
+
 An Introduction to LEF Files
 •	Technology LEF - Contains layer information, via information, and restricted DRC rules
+
 •	Cell LEF - Abstract information of standard cells
  
 Grids in the layout
- 
- 
- 
- 
- 
- 
+  
  
  
 To understand this, we first need to convert the grids size in the MAGIC tool window to the track pitch size. For that, first we observe the values in the tracks.info file under the skylane130 files which is under Skylane130a PDK.
@@ -585,15 +620,6 @@ Slow lib file
  
 Now, we perform synthesis and check whether the custom cell got mapped by abc mapping or not.
 VsdInv getting mapped by the abc mapping tool
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  
@@ -697,7 +723,7 @@ After preparations, we are good to go to report the timing. Below are the snapsh
  
  
  
-Day 5 Final Steps in RTL to GDSII
+## Day 5 Final Steps in RTL to GDSII
  
 After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network in OpenLANE:
  
