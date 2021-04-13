@@ -22,11 +22,11 @@ Design Folder
 All designs run within OpenLANE are extracted from the openlane/designs folder:
  ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/2.png) 
  
- 
- 
- 
-Invoking OpenLane
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/3.png)  
+ Invoking OpenLane
+
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/3.png)  
  
  
  
@@ -37,7 +37,11 @@ Invoking OpenLane
  
 Package Importing
 Different software dependencies are needed to run OpenLANE. To import these into the OpenLANE tool we need to run:
- ![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/4.png)  
+
+
+
+
+![alt text](https://github.com/rakhibherwani/Adavnced-OpenLANE-Workshop/blob/master/Day-1/4.png)  
  
  
  
